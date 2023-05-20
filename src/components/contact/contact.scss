@@ -1,0 +1,34 @@
+section.contact {
+    .col-12 {
+        @include row-center
+    }
+
+    .map {
+        width: 100%;
+
+        iframe {
+            width: 100%;
+            min-height: 400px;
+        }
+    }
+
+    .form-general {
+        border: 1px solid var(--black-1);
+        padding: 30px 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    section.contact {
+        .map {
+            iframe {
+                width: 100%;
+                min-height: 600px;
+            }
+        }
+
+        .form-general {
+            padding: 30px;
+        }
+    }
+}

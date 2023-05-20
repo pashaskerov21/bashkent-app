@@ -1,0 +1,54 @@
+section.about{
+    .about-row{
+        .content{
+            @include column-align-start;
+            padding: 0 10px;
+            .text{
+                max-width: 700px;
+                margin-bottom: 20px;
+            }
+            .btn-general{
+                min-width: 180px;
+                width: 100%;
+                max-width: 240px;
+            }
+        }
+        .about-img{
+            width: 100%;
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .why-us{
+        width: 100%;
+        @include column-center;
+        .row{
+            justify-content: center;
+        }
+        .item{
+            width: 100%;
+            @include column-center;
+            img{
+                object-fit: contain;
+                margin-bottom: 20px;
+            }
+            span{
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 992px){
+    section.about{
+        .about-row{
+            flex-direction: row-reverse;
+        }
+    }
+}
