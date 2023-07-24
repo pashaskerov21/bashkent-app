@@ -278,3 +278,19 @@ section {
         align-self: flex-start;
     }
 }
+
+.not-found{
+    width: 100%;
+    @include column-center;
+    span{
+        font-size: 100px;
+        color: var(--color-1);
+    }
+    a{
+        @include row-center;
+        padding: 15px 30px;
+        background-color: var(--color-1);
+        color: #fff;
+        border-radius: 10px;
+    }
+}

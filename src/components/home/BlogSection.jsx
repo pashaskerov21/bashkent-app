@@ -41,7 +41,7 @@ function BlogSection() {
                     <div className="text">
                       <p>{blog.text.length > 120 ? blog.text.substr(0,120) + ' ...' : blog.text}</p>
                     </div>
-                    <Link to={`/blog/${blog.id}`} className='btn-general active round'>Ətraflı <i className='fa-solid fa-arrow-right'></i></Link>
+                    <Link to={`/blogs/${blog.title}`} className='btn-general active round'>Ətraflı <i className='fa-solid fa-arrow-right'></i></Link>
                     <div className="date">
                       <span>{blog.date}</span>
                     </div>

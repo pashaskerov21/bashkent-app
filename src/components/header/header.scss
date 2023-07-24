@@ -149,6 +149,10 @@ header {
                 color: #fff;
                 margin-top: 20px;
                 font-size: 14px;
+                a{
+                    color: #fff;
+                    font-size: 14px;
+                }
 
                 i {
                     padding: 0 10px;
@@ -184,13 +188,6 @@ header {
             font-size: 38px;
         }
 
-        .header-content {
-            .page-title {
-                .root-links {
-                    font-size: 18px;
-                }
-            }
-        }
     }
 }
 
@@ -202,8 +199,8 @@ header {
             }
 
             .page-title {
-                .root-links {
-                    font-size: 20px;
+                .root-links a{
+                    font-size: 16px;
                 }
             }
         }

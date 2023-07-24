@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import NoPage from './pages/NoPage'
 import ScrollToTop from './ScrollToTop'
 import BlogDetail from './pages/BlogDetail'
+import Blogs from './pages/Blogs'
 
 
 function App() {
@@ -26,8 +27,10 @@ function App() {
           <Route path='/menu' element={<Menu />} />
           <Route path='/comment' element={<Comment />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/blog/:id' element={<BlogDetail/>}/>
+          <Route path='/blogs' element={<Blogs/>}/>
+          <Route path='/blogs/:blogName' element={<BlogDetail/>}/>
           <Route path='*' element={<NoPage />} />
+          <Route path='/404' element={<NoPage/>}/>
         </Routes>
       </ScrollToTop>
     </>

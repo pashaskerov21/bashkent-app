@@ -1,13 +1,16 @@
 import React from 'react'
 import Layout from './Layout'
-import SectionTitle from '../components/SectionTitle'
+import { Link } from 'react-router-dom'
 
 function NoPage() {
   return (
     <Layout>
       <section>
         <div className="container">
-          <SectionTitle title='Səhifə Tapılmadı'/>
+          <div className='not-found'>
+            <span>404</span>
+            <Link to='/'>Əsas səhifə</Link>
+          </div>
         </div>
       </section>
     </Layout>
