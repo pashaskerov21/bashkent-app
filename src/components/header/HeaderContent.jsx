@@ -17,6 +17,11 @@ function HeaderContent() {
     const [blogStatus, setBlogStatus] = useState(false);
     const navigate = useNavigate();
 
+    const {foodCategoryID} = useParams();
+    if(foodCategoryID){
+        pageLink = pageLinkArr.find((link) => link.path === '/food')
+    }
+
     useEffect(() => {
         if (pageLink) {
             setPageTitle(pageLink.label)

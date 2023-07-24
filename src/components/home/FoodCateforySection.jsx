@@ -11,7 +11,7 @@ function FoodCateforySection() {
           {
             foodCategories.map(category => (
               <div key={category.id} className="col-12 col-md-6 col-lg-4">
-                <Link to='/food' className='category-card'>
+                <Link to={`/food/${category.id}`} className='category-card'>
                   <div className='cover-img'>
                     <img src={category.cover} alt="category-cover" />
                   </div>
