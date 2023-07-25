@@ -19,7 +19,6 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb-color);
-    border-radius: var(--scrollbar-radius);
 }
 
 ::-webkit-scrollbar-track {
@@ -172,6 +171,7 @@ section {
 
     &.active {
         background-color: var(--color-1);
+        padding: 10px 15px;
     }
 
     &.round {

@@ -56,7 +56,7 @@ function HeaderContent() {
                     location.pathname === '/' ? (
                         <div className="home">
                             <h1 className='title'>Ən dadlı yeməklərin ünvanı</h1>
-                            <Link to='/about' className='btn-general active round'>Ətraflı</Link>
+                            <Link to='/about' className='btn-general active'>Ətraflı</Link>
                         </div>
                     ) : (
                         <div className="page-title">

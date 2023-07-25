@@ -1,0 +1,158 @@
+header {
+    width: 100%;
+    position: relative;
+    min-height: 80vh;
+    height: 100%;
+    max-height: 85vh;
+
+    nav {
+        width: 100%;
+        background-color: var(--white-6);
+        position: relative;
+        z-index: 1;
+
+        &.fixed-top {
+            background-color: #fff !important;
+            box-shadow: 0 0 5px var(--black-3);
+            animation: fixed-header 0.5s ease forwards;
+        }
+
+        .container {
+            @include column-center;
+
+            .inner {
+                width: 100%;
+                padding: 15px 0;
+                @include row-between;
+            }
+        }
+
+
+        &.general-nav {
+            z-index: 9;
+            &.fixed-top{
+                .menu-button,
+                .search-button{
+                    color: var(--color-1);
+                }
+                @media only screen and (min-width: 1200px){
+                    display: none;
+                }
+            }
+        }
+    }
+
+    button.mobile {
+        min-width: 40px;
+        min-height: 40px;
+        font-size: 24px;
+        color: #fff;
+
+        &.menu-button {
+            margin-right: 15px;
+        }
+
+        &.search-button {
+            margin-left: 15px;
+        }
+    }
+
+    
+}
+
+@keyframes fixed-header {
+    0% {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    header {
+        button.mobile {
+            font-size: 30px;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        button.mobile {
+            font-size: 38px;
+        }
+
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    header {
+        .header-content {
+            h1 {
+                font-size: 65px;
+            }
+
+            .page-title {
+                .root-links a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    header {
+        nav {
+            &.bottom-nav {
+                .logo {
+                    max-width: 250px;
+                }
+
+                &.fixed-top {
+                    a {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.mobile-menu {
+    background-color: var(--color-2);
+
+    .logo {
+        max-width: 200px;
+    }
+
+    .close-button {
+        font-size: 30px;
+        color: var(--color-1);
+    }
+
+    .offcanvas-links {
+        width: 100%;
+        @include column-center;
+        margin-bottom: 30px;
+
+        a {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+
+
+
+@import 'banner.scss';
+@import 'search.scss';
+@import 'navlinks.scss';
+@import 'content.scss';

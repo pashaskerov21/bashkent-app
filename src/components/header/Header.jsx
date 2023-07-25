@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import BannerSwiper from './BannerSwiper'
 import HeaderContent from './HeaderContent'
-import MobileMenu from './MobileMenu'
-import MobileNav from './MobileNav'
-import TopNav from './TopNav'
-import BottomNav from './BottomNav'
-import MobileSearch from './MobileSearch'
+import GeneralNav from './GeneralNav'
+import NavLinks from './NavLinks'
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false)
-  const menuOpenClick = () => {
-    setShowMenu(true)
-  }
-  const menuCloseClick = () => {
-    setShowMenu(false)
-  }
+  const handleMenuToggle = () => setShowMenu(!showMenu);
   const [fixed, setFixed] = useState(false)
   window.addEventListener('scroll', function () {
     if (this.window.scrollY > 300) {
@@ -24,16 +16,12 @@ function Header() {
     }
   })
   const [showSearch, setShowSearch] = useState(false);
-  const openSearch = () => {setShowSearch(true)}
-  const closeSearch = () => {setShowSearch(false)}
+  const handleSearchToggle = () => setShowSearch(!showSearch);
   return (
     <header>
       <BannerSwiper />
-      <MobileNav menuOpenClick={menuOpenClick} fixed={fixed} openSearch={openSearch} />
-      <MobileMenu showMenu={showMenu} menuCloseClick={menuCloseClick} />
-      <MobileSearch showSearch={showSearch} closeSearch={closeSearch}/>
-      <TopNav />
-      <BottomNav fixed={fixed} />
+      <GeneralNav fixed={fixed} handleMenuToggle={handleMenuToggle} showSearch={showSearch} handleSearchToggle={handleSearchToggle}/>
+      <NavLinks fixed={fixed} showMenu={showMenu} handleMenuToggle={handleMenuToggle}/>
       <HeaderContent />
     </header>
   )

@@ -1,0 +1,59 @@
+.header-content {
+    width: 100%;
+    color: #fff;
+    z-index: 1;
+    position: relative;
+    min-height: 60vh;
+    @include column-center;
+    z-index: 2;
+
+    .container {
+        @include column-center;
+    }
+
+    .home {
+        @include column-center;
+
+        .title {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .btn-general {
+            font-size: 26px;
+            padding: 12px 30px;
+            font-weight: 600;
+            min-width: 180px;
+        }
+    }
+
+    .page-title {
+        width: 100%;
+        @include column-center;
+
+        .title {
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .root-links {
+            @include row-center;
+            color: #fff;
+            margin-top: 20px;
+            font-size: 14px;
+
+            a {
+                color: #fff;
+                font-size: 14px;
+            }
+
+            i {
+                padding: 0 10px;
+            }
+        }
+    }
+}
