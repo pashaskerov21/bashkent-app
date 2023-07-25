@@ -23,7 +23,7 @@
     width: 100%;
     max-width: 400px;
     min-height: 100vh;
-    @include row-center;
+    @include row-align-start;
     padding: 15px;
     background-color: var(--color-2);
     top: 0;
