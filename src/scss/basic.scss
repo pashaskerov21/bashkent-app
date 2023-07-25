@@ -294,3 +294,14 @@ section {
         border-radius: 10px;
     }
 }
+.search-alert{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    @include row-center;
+    font-size: 24px;
+    i{
+        font-size: 66px;
+        color: var(--color-1);
+    }
+}

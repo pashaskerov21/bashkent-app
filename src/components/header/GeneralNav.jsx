@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../image/logo/logo.png'
+import Search from './Search'
 
 function GeneralNav({ fixed, handleMenuToggle, showSearch, handleSearchToggle }) {
     return (
@@ -25,10 +26,7 @@ function GeneralNav({ fixed, handleMenuToggle, showSearch, handleSearchToggle })
                             <button onClick={handleSearchToggle} className="close-button d-xl-none">
                                 <i className="fa-solid fa-xmark"></i>
                             </button>
-                            <form>
-                                <input type="text"  placeholder='Axtar'/>
-                                <button><i className='fa-solid fa-magnifying-glass'></i></button>
-                            </form>
+                            <Search handleSearchToggle={handleSearchToggle}/>
                         </div>
                     </div>
                 </div>

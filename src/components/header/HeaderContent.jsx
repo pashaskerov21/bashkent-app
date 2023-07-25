@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import pageTitleDesign from '../../image/design/white.png'
 import { MainContext } from '../../context/MainContext';
+import { useSelector } from 'react-redux';
 
 function HeaderContent() {
     let location = useLocation();
@@ -17,11 +18,11 @@ function HeaderContent() {
     const [blogStatus, setBlogStatus] = useState(false);
     const navigate = useNavigate();
 
-    const {foodCategoryID} = useParams();
-    if(foodCategoryID){
+    const { foodCategoryID } = useParams();
+    if (foodCategoryID) {
         pageLink = pageLinkArr.find((link) => link.path === '/food')
     }
-
+    const searchResults = useSelector(state => state.searchState.searchProducts);
     useEffect(() => {
         if (pageLink) {
             setPageTitle(pageLink.label)
@@ -37,16 +38,25 @@ function HeaderContent() {
             } else {
                 navigate('/404');
             }
-        }else if(location.pathname === '/blogs'){
+        } else if (location.pathname === '/blogs') {
             setPageTitle('Bloglar')
             setPageRouteLink('/blogs');
             setPageRouteLinkName('Bloglar');
+        } else if (location.pathname === '/search') {
+            
+            if(searchResults.length > 0){
+                setPageTitle('Axtarış')
+            }else{
+                setPageTitle('Axtarışa uyğun nəticə tapılmadı')
+            }
+            setPageRouteLink('/search');
+            setPageRouteLinkName('Axtarış');
         } else {
             setPageTitle('Səhifə tapılmadı')
             setPageRouteLink('/404');
             setPageRouteLinkName('404');
         }
-    }, [blogName, blogArr, pageLink, navigate ,location.pathname])
+    }, [blogName, blogArr, pageLink, navigate, location.pathname, searchResults])
 
 
     return (

@@ -1,0 +1,2 @@
+export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS'
+export const SEND_SEARCH_KEY = 'SEND_SEARCH_KEY'

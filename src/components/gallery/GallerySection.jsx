@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { MainContext } from '../../context/MainContext'
 import { Fancybox } from "@fancyapps/ui";
+import { useNavigate, useParams } from 'react-router-dom';
 Fancybox.bind("[data-fancybox]", {
     // Your custom options
 });
@@ -8,6 +9,17 @@ Fancybox.bind("[data-fancybox]", {
 
 function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('photo')
+
+  const navigate = useNavigate();
+  const {galleryCategory} = useParams();
+  useEffect(() => {
+    if(galleryCategory){
+      navigate('/gallery')
+      setActiveCategory(galleryCategory)
+    }
+  },[galleryCategory, navigate])
+
+
   const buttonHandleClick = (value) => {
     setActiveCategory(value)
   }

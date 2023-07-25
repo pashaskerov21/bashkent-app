@@ -1,8 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { MainContext } from '../../context/MainContext'
+import { useNavigate, useParams } from 'react-router-dom';
 
 function MenuSectiion() {
-  const [activeCategory, setActiveCategory] = useState('restoran')
+  const [activeCategory, setActiveCategory] = useState('restoran');
+
+  const {menuCategory} = useParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(menuCategory){
+      navigate('/menu')
+      setActiveCategory(menuCategory)
+    }
+  },[menuCategory, navigate])
+
+
   const buttonHandleClick = (value) => {
     setActiveCategory(value)
   }
