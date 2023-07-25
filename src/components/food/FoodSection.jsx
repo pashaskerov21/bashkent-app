@@ -7,8 +7,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 function FoodSection() {
   const { foodCategories, foodArr } = useContext(MainContext)
 
-  
-
   const [selectedCategoryID, setSelectedCategoryID] = useState(foodCategories.length > 0 ? foodCategories[0].id : null);
 
   const {foodCategoryID} = useParams();

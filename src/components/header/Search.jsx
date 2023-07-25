@@ -8,19 +8,28 @@ function Search({ handleSearchToggle }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [searchInputValue, setSearchInputValue] = useState('');
-    const { pageLinkArr, foodArr } = useContext(MainContext);
+    const { pageLinkArr, foodArr, foodCategories, blogArr } = useContext(MainContext);
 
-    
 
     const handleSearchFormSubmit = (e) => {
         e.preventDefault()
         handleSearchToggle();
 
         let searchPage = pageLinkArr.find((link) => link.label.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()));
+        let searchProducts = foodArr.filter((product) => product.name.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()));
+        let searchProductCategory = foodCategories.find((category) => category.title.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()));
+        let searchBlog = blogArr.find((blog) => blog.title.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()));
         if (searchPage) {
             navigate(`${searchPage.path}`)
+        }else if(searchProductCategory){
+            navigate(`/food/${searchProductCategory.id}`)
+        }else if(searchProducts.length > 0){
+            dispatch(sendSearchProducts(searchProducts));
+            navigate('/search');
         } else if (searchInputValue.trim().toLocaleLowerCase() === 'blog' || searchInputValue.trim().toLocaleLowerCase() === 'bloglar') {
             navigate('/blogs')
+        }else if(searchBlog){
+            navigate(`/blogs/${searchBlog.title}`)
         } else if (searchInputValue.trim().toLocaleLowerCase() === 'foto' || searchInputValue.trim().toLocaleLowerCase() === 'fotolar') {
             navigate('/gallery/photo')
         } else if (searchInputValue.trim().toLocaleLowerCase() === 'video' || searchInputValue.trim().toLocaleLowerCase() === 'videolar') {
@@ -32,13 +41,7 @@ function Search({ handleSearchToggle }) {
         } else {
             navigate('/search');
         }
-
-
-        let searchProducts = foodArr.filter((product) => product.name.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()));
-        if (searchProducts.length > 0) {
-            navigate('/search');
-        }
-        dispatch(sendSearchProducts(searchProducts));
+        
         setSearchInputValue('');
     }
     return (
