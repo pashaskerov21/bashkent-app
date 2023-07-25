@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from './Layout'
 import AboutSection from './../components/about/AboutSection'
-import GalleryPhoto from '../components/gallery/GalleryPhoto'
+import GallerySection from '../components/gallery/GallerySection'
 
 function About() {
   return (
@@ -9,7 +9,7 @@ function About() {
       <AboutSection/>
       <section>
         <div className="container">
-          <GalleryPhoto/>
+          <GallerySection/>
         </div>
       </section>
     </Layout>
