@@ -1,23 +1,26 @@
-.nav-backdrop{
+.nav-backdrop {
     width: 100%;
     min-height: 100vh;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9990;
     opacity: 0;
     animation: nav-backdrop 0.3s ease forwards;
-    @media only screen and (min-width: 1200px){
+
+    @media only screen and (min-width: 1200px) {
         display: none;
     }
 }
-@keyframes nav-backdrop{
-    100%{
+
+@keyframes nav-backdrop {
+    100% {
         opacity: 1;
     }
 }
-.nav-links{
+
+.nav-links {
     position: fixed;
     z-index: 9999;
     width: 100%;
@@ -30,38 +33,48 @@
     opacity: 0;
     left: -150%;
     box-shadow: 0 0 5px #000;
-    &.active{
+
+    &.active {
         left: 0;
         opacity: 1;
     }
+
     .logo {
         max-width: 200px;
     }
+
     .close-button {
         font-size: 30px;
         color: var(--color-1);
     }
-    .header{
+
+    .header {
         width: 100%;
         @include row-between;
         margin-bottom: 40px;
     }
-    .body{
+
+    .body {
         width: 100%;
+        min-height: 85vh;
         max-height: 85vh;
         overflow: auto;
+        padding-bottom: 80px;
         @include column-justify-start;
     }
-    .links{
+
+    .links {
         width: 100%;
         @include column-center;
         margin-bottom: 10px;
-        a{
+
+        a {
             margin-bottom: 12px;
             min-width: 150px;
         }
     }
-    @media only screen and (min-width: 1200px){
+
+    @media only screen and (min-width: 1200px) {
         position: relative;
         top: 0;
         left: 0;
@@ -73,78 +86,100 @@
         background-color: transparent;
         box-shadow: none;
         padding: 0;
-        .container{
+
+        .container {
             @include row-between;
         }
-        .close-button{
+
+        .close-button {
             display: none;
         }
-        .logo{
+
+        .logo {
             display: none;
         }
-        .header{
+
+        .header {
             width: auto;
             margin: 0;
         }
-        .body{
+
+        .body {
             flex-direction: row;
             justify-content: center;
+            min-height: 50px;
+            padding-bottom: 0;
         }
-        .links{
+
+        .links {
             margin: 0;
             flex-direction: row;
             justify-content: space-between;
             padding: 20px 0;
             border-bottom: 1px solid #fff;
-            a{
+
+            a {
                 margin: 0;
                 padding: 10px 0;
                 min-width: 0;
-                &.active{
+
+                &.active {
                     padding: 10px 15px;
                     min-width: 120px;
                 }
-                &:hover{
+
+                &:hover {
                     padding: 10px 15px;
                     min-width: 120px;
                 }
             }
         }
     }
-    @media only screen and (min-width: 1400px){
-        .links{
-            a{
+
+    @media only screen and (min-width: 1400px) {
+        .links {
+            a {
                 font-size: 18px;
-                &.active{
+
+                &.active {
                     min-width: 150px;
                 }
-                &:hover{
+
+                &:hover {
                     min-width: 150px;
                 }
             }
         }
     }
-    &.fixed-top{
+
+    &.fixed-top {
         position: fixed;
-        background-color: #fff;
-        box-shadow: 0 0 5px rgba(0,0,0,0.3);
-        a{
-            color: #000;
-            margin-right: 10px;
-            &:last-child{
-                margin-right: 0;
+
+        
+        @media only screen and (min-width: 1200px) {
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            a {
+                color: #000;
+                margin-right: 10px;
+    
+                &:last-child {
+                    margin-right: 0;
+                }
+    
+                &.active {
+                    color: #fff;
+                }
+    
+                &:hover {
+                    color: #fff;
+                }
             }
-            &.active{
-                color: #fff;
+            .logo {
+                display: flex;
+                margin-right: 15px;
+                max-width: 250px;
             }
-            &:hover{
-                color: #fff;
-            }
-        }
-        .logo{
-            display: flex;
-            margin-right: 15px;
-            max-width: 250px;
         }
     }
 }
