@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Layout from '../pages/Layout'
 import { MainContext } from '../context/MainContext'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import SectionTitle from '../components/SectionTitle'
 
 function BlogDetail() {
-  const { blogArr } = useContext(MainContext)
-  const { blogName } = useParams()
-  const blog = blogArr.find((blog) => blog.title === blogName)
+  const { blogArr } = useContext(MainContext);
+  const { blogName } = useParams();
+  const navigate = useNavigate();
+  const blog = blogArr.find((blog) => blog.title === blogName);
+  useEffect(() => {
+    if(!blog){
+      navigate('/404');
+    }
+  }, [blog, navigate])
   return (
     <Layout>
       <section className="blog-detail">

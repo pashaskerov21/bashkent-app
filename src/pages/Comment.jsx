@@ -5,7 +5,7 @@ import CommentSection from './../components/comment/CommentSection'
 function Comment() {
   return (
     <Layout>
-      <CommentSection/>
+      <CommentSection titleStatus='d-none'/>
     </Layout>
   )
 }

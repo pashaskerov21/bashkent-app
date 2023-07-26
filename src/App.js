@@ -12,6 +12,7 @@ import BlogDetail from './pages/BlogDetail'
 import Blogs from './pages/Blogs'
 import { useEffect } from 'react'
 import SearchResult from './pages/SearchResult'
+import FilialDetail from './pages/FilialDetail'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/filial' element={<Filial />} />
+        <Route path='/filial/:filialPath' element={<FilialDetail />} />
         <Route path='/food' element={<Food />} />
         <Route path='/food/:foodCategoryID' element={<Food />} />
         <Route path='/gallery' element={<Gallery />} />

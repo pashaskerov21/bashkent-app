@@ -1,15 +1,15 @@
 import React from 'react'
 import Layout from './Layout'
 import AboutSection from './../components/about/AboutSection'
-import GallerySection from '../components/gallery/GallerySection'
+import GalleryPhotos from '../components/gallery/GalleryPhotos'
 
 function About() {
   return (
     <Layout>
-      <AboutSection/>
+      <AboutSection titleStatus='d-none'/>
       <section>
         <div className="container">
-          <GallerySection/>
+          <GalleryPhotos/>
         </div>
       </section>
     </Layout>

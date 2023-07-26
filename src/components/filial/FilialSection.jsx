@@ -5,12 +5,12 @@ import { MainContext } from '../../context/MainContext'
 import { Link } from 'react-router-dom'
 import { Autoplay } from 'swiper'
 
-function FilialSection() {
+function FilialSection({titleStatus}) {
   const { filialArr } = useContext(MainContext)
   return (
     <section className="filial">
       <div className="container">
-        <SectionTitle title='Filiallar' />
+        <SectionTitle title='Filiallar' titleStatus={titleStatus} />
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -32,7 +32,7 @@ function FilialSection() {
           {
             filialArr.map(filial => (
               <SwiperSlide key={filial.id}>
-                <Link className='filial-card'>
+                <Link className='filial-card' to={`/filial/${filial.path}`}>
                   <div className="filial-img">
                     <img src={filial.image} alt="filial" />
                   </div>

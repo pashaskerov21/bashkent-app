@@ -294,14 +294,31 @@ section {
         border-radius: 10px;
     }
 }
+
+.page-scroll-button{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-1);
+    color: #fff;
+    &:hover{
+        animation: pulse-1 1s ease infinite;
+    }
+}
+
 .search-alert{
     width: 100%;
     text-align: center;
     padding: 20px;
-    @include row-center;
+    @include column-center;
     font-size: 24px;
     i{
         font-size: 66px;
-        color: var(--color-1);
+    }
+    span{
+        font-size: 36px; 
+        margin-top: 20px;
     }
 }

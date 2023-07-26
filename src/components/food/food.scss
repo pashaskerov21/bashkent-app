@@ -2,6 +2,7 @@
     overflow: auto;
     width: 100%;
     margin-bottom: 40px;
+    padding: 0 12px;
     .inner{
         width: 100%;
         min-width: 900px;
@@ -29,7 +30,7 @@
 
 .food-card{
     width: 100%;
-    max-width: 350px;
+    max-width: 360px;
     padding: 10px;
     border: 1px solid var(--black-1);
     cursor: pointer;
@@ -62,5 +63,11 @@
             color: var(--color-1);
             align-self: flex-end;
         }
+    }
+}
+
+section.food{
+    .col-12{
+        @include row-center;
     }
 }

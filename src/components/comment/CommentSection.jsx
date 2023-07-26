@@ -3,12 +3,12 @@ import SectionTitle from '../SectionTitle'
 import { MainContext } from '../../context/MainContext'
 import CommentCard from './CommentCard'
 
-function CommentSection() {
+function CommentSection({titleStatus}) {
   const {commentArr,  filialArr} = useContext(MainContext)
   return (
     <section className="comment">
         <div className="container">
-            <SectionTitle title='Rəylər'/>
+            <SectionTitle title='Rəylər' titleStatus={titleStatus}/>
             <div className="row">
               <div className="col-12 col-xl-6">
                 <div className="comment-container">

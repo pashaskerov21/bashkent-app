@@ -4,7 +4,7 @@ import { MainContext } from '../../context/MainContext'
 import FoodCard from './FoodCard';
 import { useNavigate, useParams } from 'react-router-dom';
 
-function FoodSection() {
+function FoodSection({titleStatus}) {
   const { foodCategories, foodArr } = useContext(MainContext)
 
   const [selectedCategoryID, setSelectedCategoryID] = useState(foodCategories.length > 0 ? foodCategories[0].id : null);
@@ -41,7 +41,7 @@ function FoodSection() {
   return (
     <section className="food">
       <div className="container">
-        <SectionTitle title='Yeməklər' />
+        <SectionTitle title='Yeməklər' titleStatus={titleStatus}/>
         <div className='food-category-buttons'>
           <div className="inner">
             {

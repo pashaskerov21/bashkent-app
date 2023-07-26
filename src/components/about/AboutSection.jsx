@@ -4,12 +4,12 @@ import { Link, useLocation } from 'react-router-dom'
 import aboutImg from '../../image/about/about-img.png'
 import WhyUs from './WhyUs';
 
-function AboutSection() {
+function AboutSection({titleStatus}) {
   const location = useLocation();
   return (
     <section className='about'>
       <div className="container">
-        <SectionTitle title='Haqqımızda' />
+        <SectionTitle title='Haqqımızda' titleStatus={titleStatus}/>
         <div className="row about-row">
           <div className="col-12 col-lg-6">
             <div className="content">

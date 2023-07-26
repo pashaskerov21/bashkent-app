@@ -5,7 +5,7 @@ import FoodSection from './../components/food/FoodSection'
 function Food() {
   return (
     <Layout>
-      <FoodSection/>
+      <FoodSection titleStatus='d-none'/>
     </Layout>
   )
 }

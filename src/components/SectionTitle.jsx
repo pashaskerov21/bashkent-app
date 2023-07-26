@@ -1,9 +1,9 @@
 import React from 'react'
 import sectionTitleDesign from '../image/design/rotate.png'
 
-function SectionTitle({title}) {
+function SectionTitle({title, titleStatus}) {
   return (
-    <div className='section-title'>
+    <div className={`section-title ${titleStatus}`}>
       <h1>{title}</h1>
       <img src={sectionTitleDesign} alt="design" />
     </div>

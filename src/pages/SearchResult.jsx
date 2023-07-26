@@ -18,12 +18,8 @@ function SearchResult() {
               ))}
 
             </div>
-          ) : (
-            <div className='search-alert'>
-              <i className="fa-solid fa-circle-exclamation"></i>
-              
-            </div>
-          )}
+          ) : null
+          }
         </div>
       </section>
     </Layout>

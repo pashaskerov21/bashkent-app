@@ -5,49 +5,51 @@ import { MainContext } from '../../context/MainContext';
 import { useSelector } from 'react-redux';
 
 function HeaderContent() {
-    let location = useLocation();
-    const { pageLinkArr } = useContext(MainContext)
-    let pageLink = pageLinkArr.find((link) => link.path === location.pathname)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { pageLinkArr, blogArr, filialArr } = useContext(MainContext);
+    const { blogName, foodCategoryID, filialPath } = useParams();
 
-
-    const { blogArr } = useContext(MainContext)
     const [pageTitle, setPageTitle] = useState();
     const [pageRouteLink, setPageRouteLink] = useState();
     const [pageRouteLinkName, setPageRouteLinkName] = useState();
-    const { blogName } = useParams();
-    const [blogStatus, setBlogStatus] = useState(false);
-    const navigate = useNavigate();
 
-    const { foodCategoryID } = useParams();
+
+    const searchResults = useSelector(state => state.searchState.searchProducts);
+    let pageLink = pageLinkArr.find((link) => link.path === location.pathname)
     if (foodCategoryID) {
         pageLink = pageLinkArr.find((link) => link.path === '/food')
     }
-    const searchResults = useSelector(state => state.searchState.searchProducts);
+
     useEffect(() => {
         if (pageLink) {
             setPageTitle(pageLink.label)
             setPageRouteLink(pageLink.path);
             setPageRouteLinkName(pageLink.label);
         } else if (blogName) {
-            setBlogStatus(true)
             const blog = blogArr.find((blog) => blog.title === blogName)
-            if (blog) {
-                setPageTitle('Bloglar')
-                setPageRouteLink(blog.title);
-                setPageRouteLinkName(blog.title);
-            } else {
-                navigate('/404');
-            }
+            setPageTitle('Bloglar')
+            setPageRouteLink(blog?.title);
+            setPageRouteLinkName(blog?.title);
+        } else if (filialPath) {
+            const filial = filialArr.find((filial) => filial.path === filialPath)
+            setPageTitle(filial?.title)
+            setPageRouteLink(filial?.path)
+            setPageRouteLinkName(filial?.title)
         } else if (location.pathname === '/blogs') {
             setPageTitle('Bloglar')
             setPageRouteLink('/blogs');
             setPageRouteLinkName('Bloglar');
         } else if (location.pathname === '/search') {
-            
-            if(searchResults.length > 0){
+
+            if (searchResults.length > 0) {
                 setPageTitle('Axtarış')
-            }else{
-                setPageTitle('Axtarışa uyğun nəticə tapılmadı')
+            } else {
+                let alert = <div className='search-alert'>
+                    <i className="fa-solid fa-circle-exclamation"></i>
+                    <span>Axtarışa uyğun nəticə tapılmadı</span>
+                </div>
+                setPageTitle(alert)
             }
             setPageRouteLink('/search');
             setPageRouteLinkName('Axtarış');
@@ -56,7 +58,7 @@ function HeaderContent() {
             setPageRouteLink('/404');
             setPageRouteLinkName('404');
         }
-    }, [blogName, blogArr, pageLink, navigate, location.pathname, searchResults])
+    }, [blogName, blogArr, pageLink, navigate, location.pathname, searchResults,filialArr, filialPath])
 
 
     return (
@@ -75,17 +77,19 @@ function HeaderContent() {
                             <div className="root-links">
                                 <Link to='/'>Əsas Səhifə</Link>
                                 <i className='fa-solid fa-chevron-right'></i>
-                                {
-                                    blogStatus ? (
-                                        <>
-                                            <Link to='/blogs'>Bloglar</Link>
-                                            <i className='fa-solid fa-chevron-right'></i>
-                                            <Link to={`/blogs/${pageRouteLink}`}>{pageRouteLinkName}</Link>
-                                        </>
-                                    ) : (
-                                        <Link to={`/${pageRouteLink}`}>{pageRouteLinkName}</Link>
-                                    )
-                                }
+                                {blogName && (
+                                    <>
+                                        <Link to='/blogs'>Bloglar</Link>
+                                        <i className='fa-solid fa-chevron-right'></i>
+                                    </>
+                                )}
+                                {filialPath && (
+                                    <>
+                                        <Link to='/filial'>Filiallar</Link>
+                                        <i className='fa-solid fa-chevron-right'></i>
+                                    </>
+                                )}
+                                <Link to={`/${pageRouteLink}`}>{pageRouteLinkName}</Link>
                             </div>
                         </div>
 

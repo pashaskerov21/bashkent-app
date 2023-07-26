@@ -5,7 +5,7 @@ import FilialSection from './../components/filial/FilialSection'
 function Filial() {
   return (
     <Layout>
-      <FilialSection/>
+      <FilialSection titleStatus='d-none'/>
     </Layout>
   )
 }
