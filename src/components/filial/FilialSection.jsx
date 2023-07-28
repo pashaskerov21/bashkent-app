@@ -32,7 +32,7 @@ function FilialSection({titleStatus}) {
           {
             filialArr.map(filial => (
               <SwiperSlide key={filial.id}>
-                <Link className='filial-card' to={`/filial/${filial.path}`}>
+                <Link to={`/filial/${filial.path}`} className='filial-card'>
                   <div className="filial-img">
                     <img src={filial.image} alt="filial" />
                   </div>
