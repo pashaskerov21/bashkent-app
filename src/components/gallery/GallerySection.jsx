@@ -44,7 +44,7 @@ function GallerySection() {
                   <div key={item.id} className="col-12 col-md-6 col-lg-4 col-xxl-3">
                     <div className="gallery-card">
                       <img src={item.cover} alt="gallery-img" />
-                      <a href={item.link} data-fancybox={`gallery-${activeCategory}`} ><i className='fa-solid fa-magnifying-glass'></i></a>
+                      <a href={item.link} data-fancybox='' ><i className={`fa-solid ${activeCategory === 'photo' ? 'fa-magnifying-glass' : 'fa-play'}`}></i></a>
                     </div>
                   </div>
                 ))
