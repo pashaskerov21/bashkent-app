@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9990;
+    z-index: 1500;
     opacity: 0;
     animation: nav-backdrop 0.3s ease forwards;
 
@@ -22,7 +22,7 @@
 
 .nav-links {
     position: fixed;
-    z-index: 9999;
+    z-index: 2000;
     width: 100%;
     max-width: 400px;
     min-height: 100vh;
